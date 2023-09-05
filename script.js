@@ -168,9 +168,6 @@ emailForm.addEventListener("submit", (e) => {
             } else {
                 showToast("Email sending failed.");
             }
-        })
-        .catch((error) => {
-            console.error("Email sending error:", error);
         });
 });
 

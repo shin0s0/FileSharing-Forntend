@@ -108,7 +108,7 @@ body{
     width:32vw;
     height: 11vh;
     border:2px solid ;
-    margin-bottom: 20px;
+    margin: 20px 0;
     border-radius: 10px;
     position: relative;
     display: none;
