@@ -140,31 +140,40 @@ const resetFileInput= () =>{
     fileInput.value="";
 }
 
-emailForm.addEventListener("submit",()=>{
-    e.preventDefault();
-    const url= fileURL.value;
-    const formData={
-        uuid:url.split("/").splice(-1,1)[0],
-        emailTo:emailForm.elements("to-email").value,
-        emailFrom:emailForm.elements("from-email").value,
-    };
-    emailForm[2].setAttribute("disabled","true");
-    fetch(emailURL,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify(formData)
-    })
-    .then((res)=> res.json())
-    .then(({success})=>{
-        if(success){
-            sharingContainer.style.display="none";
-            showToast("Email Sent");
-        }
 
-    });
+emailForm.addEventListener("submit", (e) => {
+    e.preventDefault(); 
+    const url = fileURL.value; 
+
+    const formData = {
+        uuid: url.split("/").splice(-1, 1)[0],
+        emailTo: emailForm.elements["to-email"].value,
+        emailFrom: emailForm.elements["from-email"].value,
+    };
+
+    emailForm[2].setAttribute("disabled", "true");
+
+    fetch(emailURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+    })
+        .then((res) => res.json())
+        .then(({ success }) => {
+            if (success) {
+                sharingContainer.style.display = "none";
+                showToast("Email Sent");
+            } else {
+                showToast("Email sending failed.");
+            }
+        })
+        .catch((error) => {
+            console.error("Email sending error:", error);
+        });
 });
+
 
     let toastTimer;
     const showToast = (msg) => {
