@@ -143,6 +143,8 @@ const resetFileInput= () =>{
 
 emailForm.addEventListener("submit", (e) => {
     e.preventDefault(); 
+    emailForm[2].setAttribute("disabled", "true");
+    emailForm[2].innerText = "Sending";
     const url = fileURL.value; 
 
     const formData = {
@@ -150,8 +152,6 @@ emailForm.addEventListener("submit", (e) => {
         emailTo: emailForm.elements["to-email"].value,
         emailFrom: emailForm.elements["from-email"].value,
     };
-
-    emailForm[2].setAttribute("disabled", "true");
 
     fetch(emailURL, {
         method: "POST",
@@ -161,10 +161,10 @@ emailForm.addEventListener("submit", (e) => {
         body: JSON.stringify(formData),
     })
         .then((res) => res.json())
-        .then(({ success }) => {
-            if (success) {
-                sharingContainer.style.display = "none";
+        .then(({ data }) => {
+            if (data.success) {
                 showToast("Email Sent");
+                sharingContainer.style.display = "none";
             } else {
                 showToast("Email sending failed.");
             }
