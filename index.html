@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareSnap</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <img src="./logo.png" alt="ShareSnap" class="logo">
+    <img src="./share.svg" alt="bg-image" id="bg">
+    <div class="upload-image"></div>
+    <div class="upload-container">
+        <div class="drop-zone">
+            <div class="icon-container">
+                <img src="./uploadicon.svg" alt="icon" class="center" draggable="false">
+                <img src="./uploadicon.svg" alt="icon"class="left" draggable="false">
+                <img src="./uploadicon.svg" alt="icon" class="right" draggable="false">
+            </div>
+            <input type="file" name="" id="fileinput">
+            <div class="title">Drop your Files here or, <span  class="browsebtn">browse</span></div>
+        </div>
+        <div class="progress-container">
+            <div class="bg-progress"></div>
+            <div class="inner-container">
+                <div class="title">Uploading...</div>
+                <div class="percent-container"><span id="percent">0</span>%</div>
+                <div class="progress-bar"></div>
+            </div>        
+        </div>
+        <div class="sharing-container">
+            <p class="expire">Link expires in 24 hours</p>
+            <div class="input-container">
+                <input type="text" id="fileURL" readonly>
+                <img src="./copy.svg" alt="copyicon" id="copyBtn">
+            </div>
+            <p>or Send Via Email</p>
+            <div class="email-container">
+                <form id="emailForm">
+                    <div class="field">
+                        <label for="smail">Your Email</label>
+                        <input type="email" required name="from-email" id="sender">
+                    </div>
+                    <div class="field">
+                        <label for="rmail">Reciever's Email</label>
+                        <input type="email" required name="to-email" id="reciever">
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toast">dsfsdkl</div>
+</body>
+<script src="./script.js"></script>
+</html>
