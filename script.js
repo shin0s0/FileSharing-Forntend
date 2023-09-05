@@ -160,13 +160,12 @@ emailForm.addEventListener("submit", (e) => {
         },
         body: JSON.stringify(formData),
     })
-        .then((res) => res.json())
-        .then(({ data }) => {
-            if (data.success) {
+    .then((res) => {
+        if (res.status === 200) {
                 showToast("Email Sent");
                 sharingContainer.style.display = "none";
             } else {
-                showToast("Email sending failed.");
+                showToast("Failed : An unexpected error occured ");
             }
         });
 });
