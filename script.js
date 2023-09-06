@@ -18,7 +18,7 @@ const toast = document.querySelector(".toast");
 let dragCounter = 0;
 const maxAllowedSize = 100 * 1024 * 1024;
 
-const host = 'https://rich-jade-sockeye-toga.cyclic.app';
+const host = 'https://file-saring.onrender.com';
 const uploadURL = `${host}/api/files`; 
 const emailURL = `${host}/api/files/send`; 
 
