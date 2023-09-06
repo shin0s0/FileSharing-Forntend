@@ -18,7 +18,7 @@ const toast = document.querySelector(".toast");
 let dragCounter = 0;
 const maxAllowedSize = 100 * 1024 * 1024;
 
-const host = 'https://busy-yak-tux.cyclic.app/';
+const host = 'https://gleaming-pink-suit.cyclic.app/';
 const uploadURL = `${host}/api/files`; 
 const emailURL = `${host}/api/files/send`; 
 
